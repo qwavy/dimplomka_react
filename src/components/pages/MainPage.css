@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+.container {
+    width: 1920px;
+    font-family: 'Poppins';
+    font-style: normal;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+}
+
+.logo {
+    width: 10%;
+    height: 48px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+.header_login {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header_login_name {
+    width: 54;
+    height: 24px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.line {
+    height: 0px;
+    width: 100%;
+    border: 1px solid #808080;
+}
+
+.header_search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 2%;
+}
+
+.header_search_location {
+    width: 152.2px;
+    height: 56px;
+    background: #FFAE5D;
+    border-radius: 20px;
+    padding: 16px;
+
+}
+
+.header_search_location p {
+    width: 100px;
+    height: 24px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.header_search_bar {
+    display: flex;
+    justify-content: space-between;
+    width: 42%;
+    height: 56px;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.header_search_bar p {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #808080;
+}
+
+.content {
+    display: flex;
+    margin-top: 5%;
+
+}
+
+.content h1 {
+    /* height: 400px; */
+    /* display: flex;
+    align-items: center; */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 4.5em;
+}
+
+.content_p {
+    color: #FFAE5D;
+}
+
+.content_deals {}
+
+.content_deals_container {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.content_deals h1 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.price_info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.discount {
+    color: #FF3232;
+}
+
+.photo {
+    width: 100%;
+    margin-top: 5%;
+}
+
+.line {
+    border: 1px solid #808080;
+}
+
+hr {
+    border: 1px dashed #FFAE5D;
+}
+
+.product_card {
+    padding: 4%;
+}
+.hot_deals{
+    width: 100%;
+    margin-top: 5%;
+}
+.hot_deals h1 {
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+.products_container{
+    display: flex;
+}
+.hot_deals_product_card{
+    padding: 1%;
+}
+.furniture{
+    margin-top: 5%;
+}
+.furniture_img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    background: url('../../images/design.png');
+}
+.furniture h1{
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+}
+.footer{
+    width: 100%;
+    height: 10rem;
+    background-color: #FFAE5D;
+    border-radius: 10px;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+@media screen and (max-width:480px) {
+    .container{
+        width: 480px;
+    }
+    .header{
+        width: 150%;
+    }
+    .line{
+        width: 150%;
+    }
+    .header_search{
+        width: 150%;
+    }
+    .content{
+        /* width: 10%; */
+        display: flex;
+        flex-direction: column;
+    }
+    .content h1{
+        font-size: 2em;
+    }
+    .content_deals_container{
+        width: 50%;
+    }
+    hr{
+        width: 150%;
+    }
+    .photo{
+        width: 150%;
+    }
+    .products_container{
+        width: 50%;
+        display: flex;
+        /* flex-direction: column; */
+    }
+    .product_card{
+        padding: ;
+    }
+}
