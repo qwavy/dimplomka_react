@@ -1,59 +1,74 @@
 import { observer } from "mobx-react-lite"
+import { Routes, Route, Link } from 'react-router-dom'
+
+import MainPage from "./components/pages/MainPage/MainPage"
+import ProductInfo from "./components/pages/ProductInfo/ProductInfo"
+import ProductsFavourites from "./components/pages/ProductsFavourites/ProductsFavourites"
+import Register from "./components/pages/DataUsers/Register"
+import Login from "./components/pages/DataUsers/Login"
+// import Register from "./components/pages/DataUsers/Register"
 import { useEffect, useState } from "react"
-import Cart from "./components/Cart"
-import CartButton from "./components/CartButton"
-import MainPage from "./components/pages/MainPage"
-import ProductInfo from "./components/ProductInfo"
-import ProductsCategory from "./components/ProductsCategory"
-import SearchBar from "./components/SearchBar"
 import products from "./store/products"
+import firebase from "./firebase"
+// import Cart from "./components/Cart"
+// import CartButton from "./components/CartButton"
+// import ProductInfo from "./components/ProductInfo"
+// import ProductsCategory from "./components/ProductsCategory"
+// import SearchBar from "./components/SearchBar"
+// import products from "./store/products"
+
+// import Login from "./components/pages/Data/Login";
+
+// import Login from './components/pages/DataUsers/SignIn/Login';
+
+
 
 const App = () => {
-  const [productsList,setProductsList] = useState([])
-
-  // products.check()
-  // useEffect(() => {
-  //   // products.getProducts()
-  //   // setProductsList(products.products)
-  //   // console.log(productsList)
-  //   fetch('https://fakestoreapi.com/products')
-  //   .then(res=>res.json())
-  //   .then(json=>products.products = (json))
-  //   setProductsList(products.products)
-  // }, [])
+  const [user, setUser] = useState(null)
   useEffect(() => {
-    setProductsList(products.products)
-  },[products.products])
-  const setProductsListFunc = (array) => {
-    setProductsList(array)
-  }
-  const test = () => {
-    fetch('https://fakestoreapi.com/products')
-    .then(res=>res.json())
-    .then(json => products.getProducts(json))
-  }
+    firebase.auth().onAuthStateChanged(user => {
+      setUser(user);
+      console.log(user)
+    })
+  }, [])
+
 
   return (
     <div className='container'>
-      <MainPage/>
-      {/* <SearchBar setProductsList={setProductsListFunc}/>
-      <ProductsCategory setProductsList={setProductsListFunc}/>
-      <Cart />
-      
-      <button onClick={test}>test</button>
-      {productsList.map((product) => <div key={product.id} className="card" style={{ width: "18rem" }}>
-        <img className="card-img-top" src={product.image} alt="Card image cap" />
-        <div className="card-body">
-          <h5 className="card-title">{product.title}</h5>
-          <p className="card-text">{product.price}$</p>
-          <ProductInfo product={product}/>
-          <CartButton product={product} />
-          {product.rating.rate}★
+
+
+      {user ? <><Link to="/Home">Home</Link>
+
+
+
+        <div>
+
+          <Link to="/ProductInfo">ProductPage</Link>
+
         </div>
-      </div>)} */}
+        <div>
+          <Link to="/Favourites">Favourites</Link>
 
-      {/* <amazonProducts.map((productt)) */}
+        </div>
+        <div>
+          <Link to="/Register">Register</Link>
+        </div>
+        <div>
+          <Link to='/Login'>Login</Link>
+        </div>
 
+
+        <div>
+          <Routes>
+            <Route path="/Home" element={<MainPage userData={user}/>} />
+            <Route path="/ProductInfo" element={<ProductInfo />} />
+            <Route path="/Favourites" element={<ProductsFavourites />} />
+            <Route path="/Register" element={<Register />} />
+            <Route path="/Login" element={<Login />} />
+          </Routes>
+        </div>
+      </>
+        : <Register />}
     </div>
   )
 }

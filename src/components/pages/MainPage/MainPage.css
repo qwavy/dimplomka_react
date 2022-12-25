@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
 
 .container {
+    /* max-width: 1920px; */
     width: 1920px;
     font-family: 'Poppins';
     font-style: normal;
@@ -179,7 +180,7 @@ hr {
     align-content: center;
     width: 100%;
     height: 100%;
-    background: url('../../images/design.png');
+    background: url('../../../images/design.png');
 }
 .furniture h1{
     color: #000000;
@@ -198,22 +199,24 @@ hr {
     align-items: center;
     align-content: center;
 }
-
+.user_photo{
+    border-radius: 20px
+    ;
+}
 @media screen and (max-width:480px) {
     .container{
         width: 480px;
     }
     .header{
-        width: 150%;
+        width: 140%;
     }
     .line{
         width: 150%;
     }
     .header_search{
-        width: 150%;
+        width: 40%;
     }
     .content{
-        /* width: 10%; */
         display: flex;
         flex-direction: column;
     }
@@ -221,7 +224,10 @@ hr {
         font-size: 2em;
     }
     .content_deals_container{
-        width: 50%;
+        width: 45%;
+    }
+    .product_card{
+        padding: 2%;
     }
     hr{
         width: 150%;
@@ -230,11 +236,149 @@ hr {
         width: 150%;
     }
     .products_container{
-        width: 50%;
-        display: flex;
-        /* flex-direction: column; */
-    }
-    .product_card{
-        padding: ;
+
     }
 }
+@media screen and (min-width:481px) and (max-width:768px){
+    .container{
+        width: 768px;
+    }
+    .header{
+        width: 90%;
+    }
+    .header_search{
+        width: 90%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .content_deals_container{
+        width: 40%;
+    }
+    .content_deals{
+        padding: 2%;
+    }
+    .product_card{
+        padding: 2%;
+    }
+    hr{
+        width: 90%;
+    }
+    .photo{
+        width: 90%;
+    }
+}
+@media screen and (min-width:769px) and (max-width:1024px) {
+    .container{
+        width: 1024px;
+    }
+    .header{
+        width: 70%;
+    }
+    .header_search{
+        width: 70%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .content h1{
+        font-size: 2rem;
+    }
+
+    .content_deals_container{
+        width: 40%;
+        
+    }
+    .content_deals{
+        padding: 2%;
+    }
+    .product_card{
+        padding: 2%;
+    }
+    hr{
+        width: 70%;
+    }
+    .photo{
+        width: 70%;
+    }
+    
+}
+@media screen and (min-width:1024px) and (max-width:1280px ) {
+    .container{
+        width: 1280px;
+    }
+    .header{
+        width: 70%;
+    }
+    .header_search{
+        width: 70%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .content h1{
+        font-size: 2rem;
+    }
+
+    .content_deals_container{
+        width: 40%;
+        
+    }
+    .content_deals{
+        padding: 2%;
+    }
+    .product_card{
+        padding: 2%;
+    }
+    hr{
+        width: 70%;
+    }
+    .photo{
+        width: 70%;
+    }
+}
+@media screen and (min-width:1280px) and (max-width:1600px ) {
+    .container{
+        width: 1600px;
+    }
+    .header{
+        width: 90%;
+    }
+    .header_search{
+        width: 90%;
+    }
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .content h1{
+        font-size: 2rem;
+    }
+
+    .content_deals_container{
+        width: 40%;
+        
+    }
+    .content_deals{
+        padding: 2%;
+    }
+    .product_card{
+        padding: 2%;
+    }
+    hr{
+        width: 90%;
+    }
+    .line{
+        width: 90%;
+    }
+    .photo{
+        width: 70%;
+    }
+}
+@media screen and (min-width:1600px) and (max-width:1920px) {
+    
+}
+

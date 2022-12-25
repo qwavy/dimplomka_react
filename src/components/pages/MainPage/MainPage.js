@@ -1,17 +1,31 @@
-import login_img from '../../images/vector.png'
-import search_bar_photo from '../../images/search_bar_photo.png'
-import photo from '../../images/photo.png'
-import design from '../../images/design.png'
+// router
+
+
+
+import { observer } from "mobx-react-lite"
+import login_img from '../../../images/vector.png'
+
+import search_bar_photo from '../../../images/search_bar_photo.png'
+import photo from '../../../images/photo.png'
+// import design from '../../../images/design.png'
 import './MainPage.css'
-import products from '../../store/products'
+import products from "../../../store/products"
 import { useState, useEffect } from 'react'
-// import smart_watch from '../images/products/smart-watch.png'
+import Slider from '../../Slider'
+import SearchBar from '../../SearchBar'
 
 // import login_img from '..../store'
 // import { useEffect } from 'react';
-// products
+// import ProductInfo from './../ProductInfo/ProductInfo';/
+import ProductInfo from "../ProductInfo/ProductInfo"
+import { Link } from "react-router-dom"
 
-const MainPage = () => {
+
+const MainPage = ({userData}) => {
+
+    const [getCurrentId,setGetCurrentId] = useState(1)
+
+    const [active,setActive] = useState(false)
 
     const [dealsForTechnique, setDealsForTechnique] = useState([])
     const [hotDeals, setHotDeals] = useState([])
@@ -26,11 +40,27 @@ const MainPage = () => {
 
         const filteredDealsFurniture = products.products.filter((product) => product.category.includes("furniture"))
         setDealsFurniture(filteredDealsFurniture)
+        console.log(userData)
     }, [])
 
-    return (
-        <div className="container">
 
+    const getId = (id) => {
+        alert(id)
+        setGetCurrentId(id)
+        setActive(true)
+    }
+    const test = () => {
+        if(active === true){
+            setActive(false)
+        }else{
+            return
+        }
+        alert('test')
+    }
+
+    return (
+        <div className="container" >
+            <ProductInfo id={getCurrentId} active={active} setActive={setActive} onClick={test}/>
             <div className="header">
                 <div className='logo'>
                     <p>shopCart</p>
@@ -38,15 +68,16 @@ const MainPage = () => {
                 <div className='header_login'>
                     <div className='header_login_photo'>
                         <div>
-                            <img src={login_img} alt='photo_image' />
+                            {userData ? <img src={userData._delegate.photoURL} className="user_photo"/> : <img src={login_img} alt='photo_image' />}
+
                         </div>
                     </div>
                     <div className='header_login_name'>
-                        <p>Sign In</p>
+                        {userData ? <p>{userData._delegate.displayName}</p> : <Link to="/Register">Sign In</Link>}
+                        
                     </div>
                 </div>
             </div>
-            {/* <div className='line'></div> */}
             <hr className='line' />
 
 
@@ -54,20 +85,20 @@ const MainPage = () => {
                 <div className='header_search_location'>
                     <p>Astana⠀010000</p>
                 </div>
-                <div className='header_search_bar'>
-                    <p>Search</p>
-                    <img src={search_bar_photo} />
-                </div>
+                {/* <div className='header_search_bar'> */}
+                    <SearchBar/>
+                    {/* <img src={search_bar_photo} /> */}
+                {/* </div> */}
             </div>
             <div className='content'>
                 <h1>
                     We picked some <span className='content_p'>cool things</span> for you!
                 </h1>
-                <div className='content_deals'>
+                <div className='content_deals' >
                     <h1>deals for technique</h1>
                     <hr />
-                    <div className='content_deals_container'>
-                        {dealsForTechnique.map((product) => <div className='product_card' key={product.id}>
+                    <div className='content_deals_container' >
+                        {dealsForTechnique.map((product) => <div className='product_card' key={product.id}  onClick={() => getId(product.id)}>
                             <img src={product.image} />
                             <p>{product.title}</p>
                             <div className='price_info'>
@@ -111,10 +142,11 @@ const MainPage = () => {
                     </div>)}
                 </div>
             </div>
+            <Slider dealsForTechnique={dealsFurniture}/>
             <div className='footer'>
                 <p className='logo'>shopCart</p>
             </div>
         </div>
     )
 }
-export default MainPage
+export default observer(MainPage)

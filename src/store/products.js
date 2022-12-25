@@ -21,9 +21,6 @@ import sofa from '../images/products/sofa.png'
 class Products {
     constructor(){
         makeAutoObservable(this)
-
-
-
     }
     // iphone_14_pro_max = 0
     // smart_watch = 0
@@ -49,11 +46,17 @@ class Products {
         // {id:19,title:"",price:,description:"",category:"",image:"",rating:{rate:,count:},discount:},
         // {id:20,title:"",price:,description:"",category:"",image:"",rating:{rate:,count:},discount:},
     ]
-    getProducts = (json) => {
-        this.products = json
-    }
-    cart_info = []
+    // getProdcuts = async() => {
+    //     fetch('https://dummyjson.com/products')
+    //     .then(res => res.json())
+    //     .then(res = this.products);
+    // }
+    products_cart = []
+    products_favourites = []
     cart_all_price = 0
+
+    usersEmails = []
+    usersPasswords = []
 }
 export default new Products()
 
