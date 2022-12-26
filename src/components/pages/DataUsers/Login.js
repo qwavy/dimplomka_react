@@ -2,22 +2,23 @@ import { useState } from "react";
 import products from "../../../store/products";
 
 const Login = () => {
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
     const handleSubmit = () => {
-        // if(email === products.usersEmails)
-        for(let i = 0; products.usersEmails.length;i++){
-            if(email === products.usersEmails[i]){
-                if(password === products.usersPasswords[i]){
-                    alert(products.usersEmails.length)
+
+        for (let i = 0; i < products.usersEmails.length; i++) {
+            if (email === products.usersEmails[i]) {
+                if (password === products.usersPasswords[i]) {
                     alert('confirmed')
-                }else{
+                    return
+                } else {
                     alert('no ')
+                    return
                 }
-            }else{
-                return
             }
+
+
         }
     }
 
