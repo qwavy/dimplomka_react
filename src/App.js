@@ -24,10 +24,11 @@ import firebase from "./firebase"
 
 
 const App = () => {
-  const [user, setUser] = useState(null)
+  // const [user, setUser] = useState(null)
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
-      setUser(user);
+      // setUser(user);
+      products.user = user
       console.log(user)
     })
   }, [])
@@ -37,7 +38,7 @@ const App = () => {
     <div className='container'>
 
 
-      {user ? <><Link to="/Home">Home</Link>
+      {products.user ? <><Link to="/Home">Home</Link>
 
 
 
@@ -60,7 +61,7 @@ const App = () => {
 
         <div>
           <Routes>
-            <Route path="/Home" element={<MainPage userData={user}/>} />
+            <Route path="/Home" element={<MainPage userData={products.user}/>} />
             <Route path="/ProductInfo" element={<ProductInfo />} />
             <Route path="/Favourites" element={<ProductsFavourites />} />
             <Route path="/Register" element={<Register />} />

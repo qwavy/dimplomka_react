@@ -8,12 +8,7 @@ const ProductsCategory = ({setProductsList}) => {
         setProductsList(filtered)
     }
     const sortByPrice = () => {
-        // console.log(filteredList)
-        // const sorted = filteredList.sort((a, b) => a.price - b.price)
         const sorted = products.products.sort((a, b) => a.price - b.price)
-
-        // setProductsList(sorted)
-        // const sorted = console.log(products.products)
     }
     const sortByPriceLow = () => {
         const sorted = products.products.sort((a, b) => b.price - a.price)
@@ -23,8 +18,6 @@ const ProductsCategory = ({setProductsList}) => {
     const sortByRating = () => {
         const sorted = products.products.sort((a, b) => b.rating.rate - a.rating.rate)
         setProductsList(sorted)
-
-
     }
     return (
         <div>

@@ -57,6 +57,8 @@ class Products {
 
     usersEmails = []
     usersPasswords = []
+
+    user = null
 }
 export default new Products()
 

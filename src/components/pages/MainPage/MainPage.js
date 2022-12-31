@@ -73,8 +73,10 @@ const MainPage = ({userData}) => {
                         </div>
                     </div>
                     <div className='header_login_name'>
+                        
                         {userData ? <p>{userData._delegate.displayName}</p> : <Link to="/Register">Sign In</Link>}
                         
+                        {/* {userData ? <p>{userData._delegate.displayName}</p> : <p>{userData.firstName} {userData.lastName}</p> } */}
                     </div>
                 </div>
             </div>
